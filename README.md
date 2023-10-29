@@ -20,7 +20,7 @@ O Aeroporto de Pato Branco recebe aeronaves  diariamente e atualmente faz o cont
 |--------|--------|----------|
 | [Novo Registro](#novo-registro) | POST   | /aeronaves |
 | [Listar](#listar) | GET   | /aeronaves/listar |
-| [Atualizar](#atualizar) | PATCH   | /endereço/:param/... |
+| [Atualizar](#atualizar) | PATCH   | /aeronaves/{nome}/partida|
 | [Deletar](#deletar) | DELETE   | /endereço/:param/... |
 
 ---
@@ -32,14 +32,22 @@ Desc: Inclui novo registro de chegada de aeronave no pátio
 ```json
 BODY
 {
-  "nome": "Nome"
+  "nome": "string",
+  "data_entrada": "datetime" //opcional
 }
 ```
+
+##### Respostas
+| código | Descrição |
+|--------|--------|
+| 200 | OK |
+| 400 | Aeronave já registrada |
+| 422 | Validation Error |
 ---
 
 #### Listar
 
-Desc: Lista aeronaves presentes no pát
+Desc: Lista aeronaves presentes no pátio
 
 **GET** (/aeronaves/listar)
 ```json
@@ -50,15 +58,17 @@ BODY
 
 #### Atualizar
 
-Desc: 
+Desc: Registra a partida das aeronaves do pátio
 
-**PATCH** (/endereço/:param/...)
-```json
-BODY
-{  
-    "parâmetro 1": "UPDATE",  
-}
-```
+**PATCH** (/aeronaves/{nome}/partida)
+
+##### Respostas
+| código | Descrição |
+|--------|--------|
+| 200 | OK |
+| 404 | Aeronave não encontrada |
+| 422 | Validation Error |
+
 ---
 #### Deletar
 
