@@ -18,3 +18,7 @@ def create_aeronave(aeronave: Aeronave):
     aeronave.id = len(aeronaves_db) + 1
     aeronaves_db.append(aeronave)
     return aeronave
+
+@app.get("/aeronaves/listar", response_model=aeronaves_db)
+def listar_aeronaves():
+    return aeronaves_db
