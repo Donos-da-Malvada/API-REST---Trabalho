@@ -18,31 +18,38 @@ O Aeroporto de Pato Branco recebe aeronaves  diariamente e atualmente faz o cont
 ##### Sumário
 | Função | Método | Endereço |
 |--------|--------|----------|
-| [Novo Registro](#novo-registro) | POST   | /endereço/... |
-| [Listar](#listar) | GET   | /endereço/... |
-| [Atualizar](#atualizar) | PATCH   | /endereço/:param/... |
+| [Novo Registro](#novo-registro) | POST   | /aeronaves |
+| [Listar](#listar) | GET   | /aeronaves/listar |
+| [Atualizar](#atualizar) | PATCH   | /aeronaves/{nome}/partida|
 | [Deletar](#deletar) | DELETE   | /endereço/:param/... |
 
 ---
 #### Novo Registro
 
-Desc: 
+Desc: Inclui novo registro de chegada de aeronave no pátio
 
-**POST** (/endereço/...)
+**POST** (/aeronaves/...)
 ```json
 BODY
-{    
-    "parâmetro 1": "texto",    
-    "parâmetro 2": 10000
+{
+  "nome": "string",
+  "data_entrada": "datetime" //opcional
 }
 ```
+
+##### Respostas
+| código | Descrição |
+|--------|--------|
+| 200 | OK |
+| 400 | Aeronave já registrada |
+| 422 | Validation Error |
 ---
 
 #### Listar
 
-Desc: 
+Desc: Lista aeronaves presentes no pátio
 
-**GET** (/endereço/...)
+**GET** (/aeronaves/listar)
 ```json
 BODY
 {    }
@@ -51,15 +58,17 @@ BODY
 
 #### Atualizar
 
-Desc: 
+Desc: Registra a partida das aeronaves do pátio
 
-**PATCH** (/endereço/:param/...)
-```json
-BODY
-{  
-    "parâmetro 1": "UPDATE",  
-}
-```
+**PATCH** (/aeronaves/{nome}/partida)
+
+##### Respostas
+| código | Descrição |
+|--------|--------|
+| 200 | OK |
+| 404 | Aeronave não encontrada |
+| 422 | Validation Error |
+
 ---
 #### Deletar
 
