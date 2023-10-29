@@ -21,7 +21,7 @@ O Aeroporto de Pato Branco recebe aeronaves  diariamente e atualmente faz o cont
 | [Novo Registro](#novo-registro) | POST   | /aeronaves |
 | [Listar](#listar) | GET   | /aeronaves/listar |
 | [Atualizar](#atualizar) | PATCH   | /aeronaves/{nome}/partida|
-| [Deletar](#deletar) | DELETE   | /endereço/:param/... |
+| [Deletar](#deletar) | DELETE   | /aeronaves/{nome}/deletar |
 
 ---
 #### Novo Registro
@@ -74,7 +74,7 @@ Desc: Registra a partida das aeronaves do pátio
 
 Desc: 
 
-**DELETE** (/endereço/:param/...)
+**DELETE** (/aeronaves/{nome}/deletar)
 ```json
 BODY
 {    }
