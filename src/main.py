@@ -41,3 +41,11 @@ async def atualizar_aeronave(nome: str):
     raise HTTPException(status_code=404, detail="Aeronave não encontrada")
 
 
+@app.delete("/aeronaves/{nome}/deletar")
+def delete_aeronave(nome: str):
+    for registro in list(filter(lambda aeronave: aeronave.data_saida is None, aeronaves_db)):
+        if registro.data_saida == None and registro.nome == nome:
+            aeronaves_db.remove(registro)
+            return {"message": "Aeronave removida com sucesso"}
+
+    raise HTTPException(status_code=404, detail="Aeronave não encontrada")
