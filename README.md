@@ -18,31 +18,30 @@ O Aeroporto de Pato Branco recebe aeronaves  diariamente e atualmente faz o cont
 ##### Sumário
 | Função | Método | Endereço |
 |--------|--------|----------|
-| [Novo Registro](#novo-registro) | POST   | /endereço/... |
-| [Listar](#listar) | GET   | /endereço/... |
+| [Novo Registro](#novo-registro) | POST   | /aeronaves |
+| [Listar](#listar) | GET   | /aeronaves/listar |
 | [Atualizar](#atualizar) | PATCH   | /endereço/:param/... |
 | [Deletar](#deletar) | DELETE   | /endereço/:param/... |
 
 ---
 #### Novo Registro
 
-Desc: 
+Desc: Inclui novo registro de chegada de aeronave no pátio
 
-**POST** (/endereço/...)
+**POST** (/aeronaves/...)
 ```json
 BODY
-{    
-    "parâmetro 1": "texto",    
-    "parâmetro 2": 10000
+{
+  "nome": "Nome"
 }
 ```
 ---
 
 #### Listar
 
-Desc: 
+Desc: Lista aeronaves presentes no pát
 
-**GET** (/endereço/...)
+**GET** (/aeronaves/listar)
 ```json
 BODY
 {    }
